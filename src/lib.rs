@@ -215,6 +215,7 @@ impl<T: Config> Pallet<T> {
 		let mut approved_set = <ApprovedValidators<T>>::get();
 		approved_set.retain(|v| *v != validator_id);
 		<ApprovedValidators<T>>::put(approved_set);
+		log::debug!(target: LOG_TARGET, "Validator unapproved,");
 		Ok(())
 	}
 
